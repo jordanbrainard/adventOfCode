@@ -6,31 +6,34 @@ import java.util.logging.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.december.day1.DepthFinder;
+import main.december.day2.PositionFinder;
+import main.domain.Movement;
+
 public class App {
-    static DepthFinder df = new DepthFinder();
-    static File f = new File("resources/depths.txt");
-    static String[] fileDepths = f.list();
+    static PositionFinder pf = new PositionFinder();
     private static final Logger LOGGER = Logger.getLogger(App.class.getName());
+
     public static void main(String[] args) throws Exception {
         String line = "";
-        List<Integer> readInDepths= new ArrayList();
+        List<Movement> movements = new ArrayList();
         BufferedReader br = null;
         try {
-        br = new BufferedReader(new FileReader("src\\main\\resources\\depths.txt"));
+            br = new BufferedReader(new FileReader("src\\main\\resources\\movements.txt"));
 
-        while ((line = br.readLine()) != null) {  
-            readInDepths.add(Integer.parseInt(line));
+            while ((line = br.readLine()) != null) {
+                String[] splits = line.split(" ");
+                String dir = splits[0];
+                int dis = Integer.parseInt(splits[1]);
+                movements.add(new Movement(dir, dis));
+            }
+        } catch (Exception e) {
+            LOGGER.info("error parsing list");
+        } finally {
+            LOGGER.log(Level.INFO, pf.findEndpointProduct(movements).toString());
+            if (br != null) {
+                br.close();
+            }
         }
-    }catch(Exception e){
-        LOGGER.info("error parsing list");
-    }
-    finally{
-        LOGGER.log(Level.INFO, df.seaFloorChange(readInDepths).toString());
-        if(br != null){
-            br.close();
-        }
-    }
 
     }
 }
