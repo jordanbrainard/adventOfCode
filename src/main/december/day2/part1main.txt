@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +14,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         String line = "";
-        List<Movement> movements = new ArrayList();
+        List<Movement> movements = new ArrayList<>();
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader("src\\main\\resources\\movements.txt"));

@@ -24,3 +24,6 @@ hs_err_pid*
 
 #bin files
 bin/*
+
+#editor files
+.vscode/settings.json
