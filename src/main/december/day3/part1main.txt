@@ -31,6 +31,10 @@ public class App {
                 br.close();
             }
         }
-
     }
 }
+
+// output
+// binary gamma: 111100111111
+// binary epsilon: 000011000000
+// decimal gamma * decimal epsilon = 749376
