@@ -58,12 +58,11 @@ public class PowerConsumptionCalculator {
                 epsilon.append('1');
             }
         }
-
+        
         return epsilon.toString();
     }
 
     public Integer getValueFromBinary(String binary){
-
         return Integer.parseInt(binary, 2);
     }
 }
