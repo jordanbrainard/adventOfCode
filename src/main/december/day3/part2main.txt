@@ -34,3 +34,8 @@ public class App {
 
     }
 }
+
+//output
+//binary oxygen rating: 111100011111
+//binary CO2 rating: 001001100101
+//answer: 2372923
